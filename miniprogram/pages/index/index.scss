@@ -1,0 +1,80 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chartBox {
+  flex-grow: 1;
+  display: block;
+  padding: 0 10rpx;
+  background-color: aliceblue;
+  overflow: scroll;
+  padding-bottom: 20px;
+
+  .message {
+    margin-top: 10rpx;
+    display: flex;
+
+    .me,
+    .ai {
+      padding: 20rpx;
+      max-width: 70%;
+      background: #e4e4e4;
+      border-radius: 8rpx;
+      font-size: 30rpx;
+    }
+
+    .me {
+      margin-left: auto;
+      background: #07c160;
+      border-radius: 8rpx;
+      color: #FFFFFF;
+    }
+  }
+}
+
+.searchBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10rpx;
+  margin-bottom: 81rpx;
+
+  input {
+    height: 100%;
+    width: 80%;
+  }
+
+  button {
+    width: 40%;
+  }
+}
+
+.loadpos {
+  width: 220px;
+}
+
+.loadpos:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+  animation: ellipsis steps(4, end) 900ms infinite;
+  content: "\2026";
+  /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}

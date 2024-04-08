@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="chartBox">
+    <view class="message" wx:for="{{messages}}" wx:for-item="msg" wx:key="text">
+      <view bindlongtap="copyText" data-key="{{msg.text}}" class="ai typing " wx:if="{{msg.type === 'ai'}}">
+        <view> 挑选精灵：<text>{{msg.text}}</text> (长按复制)</view>
+      </view>
+      <view bindlongtap="copyText" data-key="{{msg.text}}" class="me typing" wx:else="">
+        <view> 我：{{msg.text}}</view>
+      </view>
+    </view>
+    <view class="message" wx:if="{{sendButtonLoading}}">
+      <view class="ai typing">
+        <view class="loadpos"> 挑选精灵：思考中</view>
+      </view>
+    </view>
+  </view>
+  <view class="searchBox">
+    <input value="{{inputValue}}" maxlength="20" bindinput="bindKeyInput" auto-height placeholder="输入想要询问的事儿" />
+    <button bindtap="sendMessage" disabled="{{sendButtonLoading}}" loading="{{sendButtonLoading}}" type="primary">发送</button>
+  </view>
+  <mp-half-screen-dialog bindbuttontap="buttontap" show="{{showLoginDialog}}" maskClosable="{{false}}" title="显示你的openId" subTitle="测试标题B的副标题" desc="OpenId 内容" tips="{{yourOpenid}}" buttons="{{buttons}}"></mp-half-screen-dialog>
+</view>
